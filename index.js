@@ -60,7 +60,6 @@ app.post('/api/login', async (req,res)=> {
             "Authorization": req.body.token
         }
     })
-    console.log(sys.status);
     if(sys.status != 200) {
         res.status(404).send(undefined);
     } else {
@@ -122,7 +121,6 @@ app.post('/pkapi/*', async (req,res) => {
 });
 
 app.patch('/pkapi/*', async (req,res) => {
-    console.log(req.body);
     var result = await fetch(`https://api.pluralkit.me${req.path.replace("/pkapi","")}`, {
         method: "PATCH",
         body: JSON.stringify(req.body),
